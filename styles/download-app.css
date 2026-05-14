@@ -1,0 +1,91 @@
+/* Container principal do bloco de download do app */
+.download-app-container {
+  background: #e0c25f;
+  border-radius: 32px;
+  padding: 64px;
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center; */
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1020px;
+  width: 100%;
+}
+
+.download-app-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.download-app-info .section-title,
+.download-app-info .section-description {
+  text-align: left;
+  color: #151516;
+}
+
+.download-app-images {
+  display: flex;
+  align-items: flex-end;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.qr-code-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  background: #fff;
+  object-fit: contain;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.group-image-wrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.group-image {
+  /* width: 220px; */
+  max-width: 100%;
+  border-radius: 24px;
+  position: relative;
+  left: 0;
+  bottom: -100px; /* faz a imagem "passar" do fundo */
+}
+
+@media (max-width: 900px) {
+  .download-app-container {
+    flex-direction: column;
+    padding: 32px 16px;
+    align-items: flex-start;
+  }
+  .download-app-images {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .group-image {
+    left: 0;
+    bottom: -32px;
+    width: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .download-app-container {
+    padding: 16px 4px;
+    border-radius: 18px;
+  }
+  .qr-code-img {
+    width: 120px;
+    height: 120px;
+  }
+  .group-image {
+    width: 120px;
+    border-radius: 12px;
+    bottom: -16px;
+  }
+}
