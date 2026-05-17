@@ -1,165 +1,441 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exclusão de Conta - DatingMatch</title>
+
+    <title>Account Deletion | DatingMatch</title>
+
+    <meta
+      name="description"
+      content="Learn how to permanently delete your DatingMatch account and associated personal data."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
+      * {
         margin: 0;
-        padding: 20px;
-        color: #333;
+        padding: 0;
+        box-sizing: border-box;
       }
 
-      .container {
-        max-width: 800px;
+      :root {
+        --primary: #ff3b7f;
+        --primary-dark: #ff1f68;
+        --dark: #0f172a;
+        --gray-900: #111827;
+        --gray-700: #374151;
+        --gray-600: #4b5563;
+        --gray-500: #6b7280;
+        --gray-300: #d1d5db;
+        --gray-200: #e5e7eb;
+        --gray-100: #f3f4f6;
+        --white: #ffffff;
+        --success: #10b981;
+        --warning: #f59e0b;
+        --shadow:
+          0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(
+          180deg,
+          #fff0f5 0%,
+          #ffffff 20%,
+          #ffffff 100%
+        );
+        color: var(--gray-900);
+        line-height: 1.7;
+      }
+
+      .hero {
+        padding: 90px 20px 60px;
+        text-align: center;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 59, 127, 0.1);
+        color: var(--primary-dark);
+        padding: 10px 18px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        line-height: 1.1;
+        margin-bottom: 20px;
+        font-weight: 800;
+        color: var(--dark);
+      }
+
+      .hero p {
+        max-width: 780px;
         margin: auto;
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        font-size: 1.1rem;
+        color: var(--gray-600);
       }
 
-      h1,
+      .wrapper {
+        max-width: 1100px;
+        margin: auto;
+        padding: 0 20px 80px;
+      }
+
+      .card {
+        background: var(--white);
+        border-radius: 28px;
+        padding: 40px;
+        box-shadow: var(--shadow);
+        margin-bottom: 30px;
+      }
+
       h2 {
-        color: #2c3e50;
+        font-size: 2rem;
+        margin-bottom: 18px;
+        color: var(--dark);
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-top: 28px;
+        margin-bottom: 12px;
+        color: var(--dark);
       }
 
       p {
-        line-height: 1.6;
+        color: var(--gray-700);
+        margin-bottom: 16px;
       }
 
-      ul {
-        list-style-type: none;
-        padding: 0;
+      .steps {
+        display: grid;
+        gap: 18px;
+        margin-top: 25px;
       }
 
-      ul li {
-        background: #ecf0f1;
-        margin: 5px 0;
-        padding: 10px;
-        border-radius: 5px;
+      .step {
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+        background: var(--gray-100);
+        padding: 22px;
+        border-radius: 20px;
       }
 
-      .highlight {
-        font-weight: bold;
-        color: #e74c3c;
+      .step-number {
+        min-width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+      }
+
+      .highlight-box {
+        background: linear-gradient(135deg, #fff0f5, #ffffff);
+        border: 1px solid rgba(255, 59, 127, 0.15);
+        border-radius: 24px;
+        padding: 28px;
+        margin-top: 28px;
+      }
+
+      .data-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+      }
+
+      .data-box {
+        border-radius: 22px;
+        padding: 24px;
+        background: var(--gray-100);
+      }
+
+      .data-box h4 {
+        margin-bottom: 16px;
+        font-size: 1.1rem;
+      }
+
+      .data-box ul {
+        list-style: none;
+      }
+
+      .data-box li {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 12px;
+        color: var(--gray-700);
+      }
+
+      .data-box li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: var(--primary);
+        font-size: 20px;
+      }
+
+      .success {
+        border-left: 6px solid var(--success);
+      }
+
+      .warning {
+        border-left: 6px solid var(--warning);
+      }
+
+      .image-placeholder {
+        margin-top: 30px;
+        border-radius: 28px;
+        overflow: hidden;
+        border: 2px dashed var(--gray-300);
+        background: #fafafa;
+        min-height: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 30px;
+      }
+
+      .image-placeholder span {
+        color: var(--gray-500);
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .contact-box {
+        margin-top: 24px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 59, 127, 0.08),
+          rgba(255, 59, 127, 0.02)
+        );
+        padding: 24px;
+        border-radius: 20px;
       }
 
       .email {
-        font-weight: bold;
-        color: #2980b9;
+        color: var(--primary-dark);
+        font-weight: 700;
+        text-decoration: none;
       }
 
       .footer {
-        margin-top: 20px;
         text-align: center;
-        font-size: 0.9em;
-        color: #666;
+        margin-top: 40px;
+        color: var(--gray-500);
+        font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding-top: 70px;
+        }
+
+        .card {
+          padding: 28px;
+        }
+
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        .step {
+          flex-direction: column;
+        }
       }
     </style>
   </head>
+
   <body>
-    <div class="container">
-      <h1>Exclusão de Conta e Dados Pessoais</h1>
+    <section class="hero">
+      <div class="hero-badge">🔒 Privacy & Account Management</div>
 
-      <h2>Como excluir sua conta</h2>
-      <p>
-        Se deseja excluir sua conta do
-        <strong>DatingMatch - Chat & Friends</strong>, siga estes passos:
-      </p>
-      <ul>
-        <li>
-          Após esta devidamente cadastrado, acesse o aplicativo
-          <strong
-            >clique na foto do seu perfil na parte superior no canto direito da
-            tela > Acesse o item Perfil e clique no botão "Deletar
-            conta"</strong
-          >. Abrirá um modal onde vocé pode confirmar a exclusão da sua conta.
-          Com a conta devidamente excluída você será redirecionado para a tela
-          de login da aplicação.
-        </li>
-        <li>Confirme a exclusão inserindo suas credenciais, se necessário.</li>
-        <li>
-          Sua conta será removida imediatamente, e todos os seus dados pessoais
-          serão apagados de nossos servidores.
-        </li>
-      </ul>
-      <p>
-        Caso encontre dificuldades, entre em contato com nosso suporte pelo
-        e-mail: <span class="email">datingmtach.br@gmail.com</span>.
-      </p>
-
-      <h2>O que acontece com seus dados ao excluir a conta?</h2>
-      <p>
-        Quando você solicita a exclusão da sua conta, aplicamos a seguinte
-        política:
-      </p>
-
-      <h3>✅ Dados excluídos imediatamente:</h3>
-      <ul>
-        <li>Nome, e-mail, foto de perfil e outras informações pessoais.</li>
-        <li>Mensagens, curtidas e interações dentro do app.</li>
-        <li>Preferências e configurações da conta.</li>
-      </ul>
-
-      <h3>
-        ⏳ Dados retidos temporariamente por razões legais e de segurança:
-      </h3>
-
-      <h4>🔹 Informações de pagamento (mantidas pela Stripe):</h4>
-      <ul>
-        <li>
-          Se você realizou compras ou assinaturas dentro do app, seus registros
-          de pagamento podem ser armazenados pela <strong>Stripe</strong>, nosso
-          processador de pagamentos, conforme exigido por leis fiscais e
-          regulatórias.
-        </li>
-        <li>
-          Esses dados não ficam armazenados em nossos servidores e são mantidos
-          apenas pela Stripe pelo período necessário para auditoria e
-          conformidade legal.
-        </li>
-      </ul>
-
-      <h4>
-        🔹 Registros de segurança e antifraude (mantidos temporariamente em
-        nossos servidores):
-      </h4>
-      <ul>
-        <li>
-          <span class="highlight">Logs de login e atividades suspeitas</span>,
-          para evitar fraudes e acessos não autorizados.
-        </li>
-        <li>
-          <span class="highlight"
-            >Denúncias e registros de comportamento inadequado</span
-          >
-          (caso tenha sido reportado por outros usuários).
-        </li>
-      </ul>
+      <h1>Delete Your DatingMatch Account</h1>
 
       <p>
-        <strong
-          >🔒 Esses dados de segurança são armazenados por um período limitado e
-          excluídos automaticamente após [30, 60 ou 90 dias], exceto se houver
-          necessidade legal de retenção por mais tempo.</strong
-        >
+        Learn how to permanently remove your DatingMatch account and associated
+        personal data. We believe users should always have full control over
+        their information and privacy.
       </p>
+    </section>
 
-      <p>
-        Caso tenha dúvidas sobre a exclusão dos seus dados, entre em contato
-        pelo e-mail: <span class="email">datingmtach.br@gmail.com</span>.
-      </p>
+    <main class="wrapper">
+      <section class="card">
+        <h2>How to Delete Your Account</h2>
 
-      <div class="footer">
         <p>
-          &copy; 2025 DatingMatch - Chat & Friends. Todos os direitos
-          reservados.
+          You can permanently delete your
+          <strong>DatingMatch - Chat & Friends</strong> account directly inside
+          the app.
         </p>
-      </div>
-    </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+
+            <div>
+              <strong>Open the DatingMatch app</strong>
+              <p>Log in to your account using your registered credentials.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+
+            <div>
+              <strong>Go to your profile settings</strong>
+              <p>
+                Tap your profile menu located and open the
+                <strong>Profile</strong> section.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+
+            <div>
+              <strong>Select “Delete Account”</strong>
+              <p>
+                Confirm the deletion request. Depending on your security
+                settings, you may be asked to re-enter your credentials.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">4</div>
+
+            <div>
+              <strong>Account deletion completed</strong>
+              <p>
+                Once confirmed, your account will be permanently deleted and you
+                will be redirected to the login screen.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>What Happens to Your Data?</h2>
+
+        <p>
+          When you request account deletion, we apply the following privacy and
+          data retention policies.
+        </p>
+
+        <div class="data-grid">
+          <div class="data-box success">
+            <h4>✅ Data Deleted Immediately</h4>
+
+            <ul>
+              <li>Name, email address and profile information</li>
+              <li>Photos uploaded to your profile</li>
+              <li>Messages, likes and app interactions</li>
+              <li>Preferences and account settings</li>
+              <li>Match history and related activity</li>
+            </ul>
+          </div>
+
+          <div class="data-box warning">
+            <h4>⏳ Data Retained Temporarily</h4>
+
+            <ul>
+              <li>Security and fraud prevention logs</li>
+              <li>Reports involving abusive or harmful behavior</li>
+              <li>Payment records processed by Stripe</li>
+              <li>Technical logs required for legal compliance</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <h3>Payment Information</h3>
+
+          <p>
+            If you purchased subscriptions or premium features, payment-related
+            information may be securely retained by
+            <strong>Stripe</strong>, our payment processor, in accordance with
+            financial, tax and regulatory obligations.
+          </p>
+
+          <p>
+            DatingMatch does not store complete payment card information on its
+            own servers.
+          </p>
+
+          <h3>Security & Fraud Prevention</h3>
+
+          <p>
+            Certain security-related logs may be temporarily retained to help
+            prevent fraud, unauthorized access, abuse, scams and harmful
+            activity on the platform.
+          </p>
+
+          <p>
+            These records are automatically deleted after a limited retention
+            period unless longer storage is legally required.
+          </p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Need Help?</h2>
+
+        <p>
+          If you experience difficulties deleting your account or have questions
+          regarding your personal data, our support team is available to help.
+        </p>
+
+        <div class="contact-box">
+          <p>
+            📧 Support Email:
+            <a class="email" href="mailto:datingmatch.contato@gmail.com">
+              datingmatch.contato@gmail.com
+            </a>
+          </p>
+
+          <p>
+            🌐 Official Website:
+            <a
+              class="email"
+              href="https://www.datingmatch.com.br"
+              target="_blank"
+            >
+              www.datingmatch.com.br
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>© 2026 DatingMatch - Chat & Friends. All rights reserved.</p>
+      </footer>
+    </main>
   </body>
 </html>
