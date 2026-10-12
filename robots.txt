@@ -1,4 +1,3 @@
 User-agent: *
-Allow: /ads.txt
-Allow: /app-ads.txt
-Disallow:
+Allow: /
+Sitemap: https://www.datingmatch.com.br/sitemap.xml

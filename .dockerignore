@@ -1,2 +1,5 @@
 .git
+.agents
+.codex
 node_modules
+README.md
