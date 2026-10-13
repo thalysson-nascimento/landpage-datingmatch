@@ -1,7 +1,8 @@
 FROM nginx:stable-alpine
 ENV PORT=8080
 COPY nginx.conf.template /etc/nginx/templates/default.conf.template
-COPY index.html landing.css app.js robots.txt sitemap.xml ads.txt app-ads.txt delete-account.html /usr/share/nginx/html/
+COPY landing*.css app*.js /usr/share/nginx/html/
+COPY index.html robots.txt sitemap.xml ads.txt app-ads.txt delete-account.html /usr/share/nginx/html/
 COPY assets /usr/share/nginx/html/assets
 COPY en /usr/share/nginx/html/en
 COPY privacy /usr/share/nginx/html/privacy
