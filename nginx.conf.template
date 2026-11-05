@@ -22,6 +22,7 @@ server {
     location = /pt/ { return 301 https://www.datingmatch.com.br/; }
     location = /en { return 301 https://www.datingmatch.com.br/en/; }
     location = /health { access_log off; return 200 'ok'; }
+    location = /app-ads.txt { default_type text/plain; try_files $uri =404; }
     location ~ /\. { deny all; }
     location / { try_files $uri $uri/ =404; }
 }
