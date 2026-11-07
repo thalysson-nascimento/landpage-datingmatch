@@ -43,16 +43,6 @@ async function loadSectionsSteps() {
   stepsContainer.innerHTML = html;
 }
 
-async function loadCreateAccountSection() {
-  const container = document.getElementById("create-account-container");
-  const response = await fetch("./sections/create-account.html");
-  const html = await response.text();
-  container.innerHTML = html;
-  if (typeof initializeCreateAccountForm === "function") {
-    initializeCreateAccountForm();
-  }
-}
-
 async function loadFaqSection() {
   const container = document.getElementById("faq-container");
   const response = await fetch("./sections/faq.html");
@@ -66,4 +56,3 @@ async function loadFaqSection() {
 // Carregar ambas as seções ao iniciar
 loadSectionsSteps();
 loadFaqSection();
-loadCreateAccountSection();
